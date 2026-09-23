@@ -1,0 +1,28 @@
+<h3>Sua cesta de compras</h3>
+<div class="alert alert-info" *ngIf="mensagem.length>0">{{mensagem}}</div>
+<table class="table">
+<thead>
+      <tr>
+        <th></th>
+        <th>item</th>
+        <th>quantidade</th>
+        <th>valor</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let obj of itens">
+            <td><img src="{{obj.produto.codigo}}.jpg" width="100px"></td>
+            <td><b>{{obj.produto.nome}}</b><br>{{obj.produto.descritivo}}</td>
+            <td>{{obj.quantidade}}</td>
+            <td>R$ {{obj.valorTotal}}</td>
+            <td><button class="btn btn-danger">x</button></td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr><td>total</td><td colspan="3" class="text-end">R$ {{valorCesta}}</td>
+        <td></td></tr>
+    </tfoot>
+</table>
+<button class="btn btn-outline-info">continuar comprando</button>
+<button class="btn btn-outline-success">Finalizar pedido</button>
